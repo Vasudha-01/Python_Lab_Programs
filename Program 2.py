@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
-
 #2A Fibonacci Sequence
 def fn(n):
  if n == 1:
@@ -18,9 +15,6 @@ if num > 0:
  print("fn(", num, ") = ",fn(num) , sep ="")
 else:
  print("Error in input")
-
-
-# In[7]:
 
 
 #B Base Conversion
@@ -58,8 +52,6 @@ print(bin2Dec(num1))
 num2 = input("Enter a octal number : ")
 print(oct2Hex(num2))
 
-
-# In[ ]:
 
 
 
