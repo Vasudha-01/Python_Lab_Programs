@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
-
-
 #3A Sentence Statistics
 sentence = input("Enter a sentence : ")
 wordList = sentence.split(" ")
@@ -18,9 +15,6 @@ for ch in sentence:
         loCnt += 1
 print("This sentence has", digCnt, "digits", upCnt, "upper case letters", loCnt, 
 "lower case letters")
-
-
-# In[6]:
 
 
 #3B String Similarity
@@ -39,10 +33,3 @@ for i in range(short):
         matchCnt += 1
 print("Similarity between two said strings:")
 print(matchCnt/long)
-
-
-# In[ ]:
-
-
-
-
