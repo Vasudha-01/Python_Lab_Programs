@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
-
-
 #1A - Test Average
 m1 = int(input("Enter marks for test1 : "))
 m2 = int(input("Enter marks for test2 : "))
@@ -18,9 +15,6 @@ elif m3 <= m1 and m2 <= m2:
 print("Average of best two test marks out of three test’s marks is", avgMarks);
 
 
-# In[6]:
-
-
 #1B - Palindrome
 val = int(input("Enter a value : "))
 str_val = str(val)
@@ -32,9 +26,6 @@ else:
 for i in range(10):
  if str_val.count(str(i)) > 0:
     print(str(i),"appears", str_val.count(str(i)), "times")
-
-
-# In[ ]:
 
 
 
