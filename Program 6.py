@@ -12,7 +12,7 @@ if not os.path.isfile(fname):
     sys.exit(0) 
 infile = open(fname, "r") 
 lineList = infile.readlines() 
-for i in range(20): 
+for i in range(20):                                      #change range as per file
     print(i+1, ":", lineList[i]) 
 word = input("Enter a word : ") 
 cnt = 0 
