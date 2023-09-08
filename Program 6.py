@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[5]:
-
-
+#6A
 import os.path 
 import sys 
 fname = input("Enter the filename : ")       
