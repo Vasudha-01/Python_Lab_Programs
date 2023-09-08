@@ -1,5 +1,5 @@
-"""**Fetch Weather Data from JSON**"""
-
+#10A
+#Fetch Weather Data from JSON
 import json
 
 def fetch_weather_data_from_json(file_path):
@@ -27,19 +27,12 @@ if __name__ == "__main__":
         print(f"Conditions: {weather['conditions']}")
     else:
         print("Failed to fetch weather data from the JSON file.")
-'''
-output
-Current Weather Data:
-City: New York
-Temperature: 25.5°C
-Humidity: 60%
-Conditions: Partly Cloudy
-'''
 
-#B.
+
+#10B
 #A Merge multiple PDF into one New PDF file**
 
-!pip install PyPDF2
+pip install PyPDF2
 from PyPDF2 import PdfWriter, PdfReader
 num = int(input("Enter page number you want combine from multiple documents "))
 pdf1 = open('CIP unitwise qs.pdf', 'rb')
