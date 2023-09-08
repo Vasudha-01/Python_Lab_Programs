@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[8]:
-
-
-#A Download XKCD Comics 
+#9A Download XKCD Comics 
 import requests 
 import os 
 from bs4 import BeautifulSoup 
@@ -34,10 +28,8 @@ while True:
     print('All comics downloaded.') 
 
 
-# In[12]:
 
-
-#B Spreadsheet Operations 
+#9B Spreadsheet Operations 
 from openpyxl import Workbook  
 from openpyxl.styles import Font 
 wb = Workbook()  
@@ -87,7 +79,6 @@ for i in range(2,5):
 wb.close() 
 
 
-# In[ ]:
 
 
 
