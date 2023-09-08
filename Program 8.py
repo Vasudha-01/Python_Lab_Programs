@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
-#A Polymorphism and Inheritance 
+#8 Polymorphism and Inheritance 
 class PaliStr: 
     def __init__(self): 
         self.isPali = False 
@@ -53,7 +47,6 @@ else:
     print("Given integer is not a Palindrome")
 
 
-# In[ ]:
 
 
 
