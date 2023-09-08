@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 #6A Inheritance  
 import math 
  
@@ -57,9 +51,7 @@ t1.calcArea()
 t1.showArea()
 
 
-# In[3]:
-
-
+#7B
 class Employee: 
     def __init__(self): 
         self.name = "" 
@@ -84,10 +76,3 @@ e1 = Employee()
 e1.getEmpDetails() 
 e1.showEmpDetails() 
 e1.updtSalary() 
-
-
-# In[ ]:
-
-
-
-
