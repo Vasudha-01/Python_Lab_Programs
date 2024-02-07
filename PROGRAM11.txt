@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS First Application</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head> 
+<body>
+  <div ng-controller="myController"> 
+    <h1>Hello, {{ name }}</h1>
+  </div>
+  <script>
+    angular.module('myApp', [])
+      .controller('myController', function($scope) {
+        $scope.name = 'Vasudha';
+      });
+  </script>
+</body> 
+</html>
+
+
+<!DOCTYPE html>
+
+<html lang="en" ng-app="myApp">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>AngularJS Directives - Countries List</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body>
+
+<div ng-controller="myController">
+
+<h1>Countries List with Continents</h1>
+
+<country-list countries="countryData"></country-list>
+
+</div>
+
+<script>
+
+angular.module('myApp', [])
+
+.controller('myController', function($scope) {
+
+$scope.countryData = [
+
+{ name: 'USA', continent: 'North America' },
+
+{ name: 'Canada', continent: 'North America' },
+
+{ name: 'Brazil', continent: 'South America' },
+
+{ name: 'France', continent: 'Europe' },
+
+{ name: 'Germany', continent: 'Europe' },
+
+{ name: 'Australia', continent: 'Oceania' },
+
+{ name: 'China', continent: 'Asia' },
+
+{ name: 'South Africa', continent: 'Africa' }
+
+];
+
+})
+.directive('countryList', function() {
+
+return {
+
+restrict: 'E',
+
+scope: {
+
+countries: '='
+
+},
+
+template: '<ul>' +
+            '<li ng-repeat="country in countries">' +
+              '<strong>{{ country.name}}</strong> {{ country.continent }}' +
+            '</li>' +
+          '</ul>'
+};
+
+});
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Expressions - Student Information</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="myController">
+  <h1>Student Information</h1>
+  <p>Name: {{ student.name }}</p>
+  <p>Roll Number: {{ student.rollNumber }}</p>
+  <p>Marks: {{ student.marks }}</p>
+  <p>Expense on Books: {{ student.expenseOnBooks | currency }}</p>
+</div>
+
+<script>
+  angular.module('myApp', [])
+    .controller('myController', function($scope) {
+      $scope.student = {
+        name: 'Alice',
+        rollNumber: '2023001',
+        marks: 85,
+        expenseOnBooks: 75.50 // Assume the expense is in dollars
+      };
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Filters - Student Details</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="myController">
+  <h1>Student Details</h1>
+  
+  <p>Name in Upper Case: {{ student.name | uppercase }}</p>
+  <p>Name in Lower Case: {{ student.name | lowercase }}</p>
+  
+  <p>Fees: {{ student.fees | currency }}</p>
+  
+  <p>Subjects: 
+    <span ng-repeat="subject in student.subjects">
+      {{ subject }}{{$last ? '' : ', '}}
+    </span>
+  </p>
+</div>
+
+<script>
+  angular.module('myApp', [])
+    .controller('myController', function($scope) {
+      $scope.student = {
+        name: 'John Doe',
+        fees: 250.75, // Assume fees are in dollars
+        subjects: ['Mathematics', 'Science', 'History']
+      };
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Button Interactions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myController">
+    <button ng-click="incrementCount()" ng-disabled="disabled">Click Me!</button>
+    <button ng-show="showButton" ng-click="toggleShow()">Hide Button to Click Me!</button>
+    <button ng-hide="showButton" ng-click="toggleShow()">Show Button</button>
+    <p>Total times the button is clicked: {{ clickCount }}</p>
+
+    <script>
+        angular.module('myApp', [])
+        .controller('myController', function($scope) {
+            $scope.clickCount = 0;
+            $scope.disabled = false;
+            $scope.showButton = true;
+
+            $scope.incrementCount = function() {
+                $scope.clickCount++;
+            };
+
+            $scope.toggleShow = function() {
+                $scope.showButton = !$scope.showButton;
+            };
+        });
+    </script>
+</body>
+</html>
