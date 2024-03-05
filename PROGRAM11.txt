@@ -1,5 +1,9 @@
+//To run:     node filename.js
+
+
 //6 helloWorld.js
 console.log("Hello, World!");
+
 
 
 //7. getCurrentDateTime.js
@@ -13,7 +17,7 @@ console.log(`Formatted Date and Time: ${formattedDateTime}`);
 
 
 
-//8 simpleserver
+//8 simpleserver.js
 const http = require('http');
 const hostname = '127.0.0.1'; 
 const port = 3000; 
@@ -26,19 +30,15 @@ const server = http.createServer((req, res) => {
     server.listen(port, hostname, () => { console.log(`Server running at http://${hostname}:${port}/`); });
 
 
+
 //9 server.js
 const http = require('http');
 
-// Create a server object
 const server = http.createServer((req, res) => {
-    // Set the response HTTP header with HTTP status and Content type
     res.writeHead(200, {'Content-Type': 'text/plain'});
-
-    // Send the response body "Hello from Node.js Server!"
     res.end('Hello from Node.js Server!\n');
 });
 
-// Server listens on port 3000
 const PORT = 3000;
 server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
