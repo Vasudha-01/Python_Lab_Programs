@@ -1,212 +1,94 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-  <meta charset="UTF-8">
-  <title>AngularJS First Application</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-</head> 
-<body>
-  <div ng-controller="myController"> 
-    <h1>Hello, {{ name }}</h1>
-  </div>
-  <script>
-    angular.module('myApp', [])
-      .controller('myController', function($scope) {
-        $scope.name = 'Vasudha';
-      });
-  </script>
-</body> 
-</html>
+//6 helloWorld.js
+console.log("Hello, World!");
 
 
-<!DOCTYPE html>
+//7. getCurrentDateTime.js
+const currentDate = new Date();
 
-<html lang="en" ng-app="myApp">
+console.log(`Current Date and Time: ${currentDate}`);
 
-<head>
 
-<meta charset="UTF-8">
+const formattedDateTime = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}:${currentDate.getSeconds().toString().padStart(2, '0')}`;
+console.log(`Formatted Date and Time: ${formattedDateTime}`);
 
-<title>AngularJS Directives - Countries List</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
-</head>
+//8 simpleserver
+const http = require('http');
+const hostname = '127.0.0.1'; 
+const port = 3000; 
+const server = http.createServer((req, res) => { 
+        res.statusCode = 200; 
+        res.setHeader('Content-Type', 'text/html'); 
+        res.end('<h1>Hello from Node.js Server!</h1><p>This is a simple sentence displayed in the browser.</p>'); 
+    });
 
-<body>
+    server.listen(port, hostname, () => { console.log(`Server running at http://${hostname}:${port}/`); });
 
-<div ng-controller="myController">
 
-<h1>Countries List with Continents</h1>
+//9 server.js
+const http = require('http');
 
-<country-list countries="countryData"></country-list>
+// Create a server object
+const server = http.createServer((req, res) => {
+    // Set the response HTTP header with HTTP status and Content type
+    res.writeHead(200, {'Content-Type': 'text/plain'});
 
-</div>
-
-<script>
-
-angular.module('myApp', [])
-
-.controller('myController', function($scope) {
-
-$scope.countryData = [
-
-{ name: 'USA', continent: 'North America' },
-
-{ name: 'Canada', continent: 'North America' },
-
-{ name: 'Brazil', continent: 'South America' },
-
-{ name: 'France', continent: 'Europe' },
-
-{ name: 'Germany', continent: 'Europe' },
-
-{ name: 'Australia', continent: 'Oceania' },
-
-{ name: 'China', continent: 'Asia' },
-
-{ name: 'South Africa', continent: 'Africa' }
-
-];
-
-})
-.directive('countryList', function() {
-
-return {
-
-restrict: 'E',
-
-scope: {
-
-countries: '='
-
-},
-
-template: '<ul>' +
-            '<li ng-repeat="country in countries">' +
-              '<strong>{{ country.name}}</strong> {{ country.continent }}' +
-            '</li>' +
-          '</ul>'
-};
-
+    // Send the response body "Hello from Node.js Server!"
+    res.end('Hello from Node.js Server!\n');
 });
 
-</script>
-
-</body>
-
-</html>
-
-
+// Server listens on port 3000
+const PORT = 3000;
+server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+});
 
 
 
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-  <meta charset="UTF-8">
-  <title>AngularJS Expressions - Student Information</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <script src="angular.min.js"></script>
-</head>
-<body>
+//10. fileOperations.js
+const fs = require('fs');
 
-<div ng-controller="myController">
-  <h1>Student Information</h1>
-  <p>Name: {{ student.name }}</p>
-  <p>Roll Number: {{ student.rollNumber }}</p>
-  <p>Marks: {{ student.marks }}</p>
-  <p>Expense on Books: {{ student.expenseOnBooks | currency }}</p>
-</div>
+const appendData = 'This data will be appended to the file.\n';
 
-<script>
-  angular.module('myApp', [])
-    .controller('myController', function($scope) {
-      $scope.student = {
-        name: 'Alice',
-        rollNumber: '2023001',
-        marks: 85,
-        expenseOnBooks: 75.50 // Assume the expense is in dollars
-      };
-    });
-</script>
+fs.appendFile('example.txt', appendData, (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    console.log('Data appended to file!');
+});
 
-</body>
-</html>
+const content = 'This data will be written to the file.\n';
 
+fs.open('example2.txt', 'w', (err, fd) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
 
-
-
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-  <meta charset="UTF-8">
-  <title>AngularJS Filters - Student Details</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <script src="angular.min.js"></script>
-</head>
-<body>
-
-<div ng-controller="myController">
-  <h1>Student Details</h1>
-  
-  <p>Name in Upper Case: {{ student.name | uppercase }}</p>
-  <p>Name in Lower Case: {{ student.name | lowercase }}</p>
-  
-  <p>Fees: {{ student.fees | currency }}</p>
-  
-  <p>Subjects: 
-    <span ng-repeat="subject in student.subjects">
-      {{ subject }}{{$last ? '' : ', '}}
-    </span>
-  </p>
-</div>
-
-<script>
-  angular.module('myApp', [])
-    .controller('myController', function($scope) {
-      $scope.student = {
-        name: 'John Doe',
-        fees: 250.75, // Assume fees are in dollars
-        subjects: ['Mathematics', 'Science', 'History']
-      };
-    });
-</script>
-
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-    <meta charset="UTF-8">
-    <title>AngularJS Button Interactions</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-</head>
-<body ng-controller="myController">
-    <button ng-click="incrementCount()" ng-disabled="disabled">Click Me!</button>
-    <button ng-show="showButton" ng-click="toggleShow()">Hide Button to Click Me!</button>
-    <button ng-hide="showButton" ng-click="toggleShow()">Show Button</button>
-    <p>Total times the button is clicked: {{ clickCount }}</p>
-
-    <script>
-        angular.module('myApp', [])
-        .controller('myController', function($scope) {
-            $scope.clickCount = 0;
-            $scope.disabled = false;
-            $scope.showButton = true;
-
-            $scope.incrementCount = function() {
-                $scope.clickCount++;
-            };
-
-            $scope.toggleShow = function() {
-                $scope.showButton = !$scope.showButton;
-            };
+    fs.writeFile(fd, content, (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('File written successfully!');
+        fs.close(fd, (err) => {
+            if (err) {
+                console.error(err);
+            }
+            console.log('File closed successfully!');
         });
-    </script>
-</body>
-</html>
+    });
+});
+
+
+const data = 'This data will overwrite the content of the file.\n';
+
+fs.writeFile('example3.txt', data, (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    console.log('File written successfully!');
+});
