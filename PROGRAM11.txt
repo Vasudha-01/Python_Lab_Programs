@@ -543,3 +543,362 @@ Solution:
     </script> 
 </body> 
 </html>
+
+
+
+
+
+
+ANGULAR JS (21CSL581)  
+Q1. Develop Angular JS program that allows user to input their first name and last name and 
+display their full name.  
+Note: The default values for first name and last name may be included in the program.  
+Program: -  
+<!DOCTYPE html>  
+<html>  
+<head>  
+<!-- Link Your CSS If You Want  -->  
+<link rel="stylesheet" href="Stylesheet.css">   
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></s 
+cript>  
+</head>  
+<body ng-app="" ng-init="firstName='Aak'; lastName='Riti'">  
+<input type="text" ng-model="firstName">  
+<input type="text" ng-model="lastName">  
+<h2>{{ firstName + ' ' + lastName }}</h2>  
+</body>  
+</html>  
+          : -  
+Q2. Develop an Angular JS application that displays a list of shopping items. Allow users to add and 
+remove items from the list using directives and controllers.   
+Note: The default values of items may be included in the program.  
+Program: -  
+<!DOCTYPE html>  
+<html>  
+<head>  
+<!-- Link Your CSS If You Want -->  
+<!-- <link rel="stylesheet" href="Stylesheet.css"> -->  
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> 
+</script>  
+</head> 
+<h1>Shopping items</h1>  
+<body ng-app ng-init="items=['Item 1', 'Item 2', 'Item 3']; newItem=''">  
+<input ng-model="newItem">  
+<button ng-click="items.push(newItem); newItem = '';">Add</button>  
+<ul>  
+<li ng-repeat="item in items">  
+{{ item }}  
+<button ng-click="items.splice($index, 1)">Remove</button>  
+</li>  
+</ul>  
+</body>  
+</html>  
+          : -  
+Q3. Develop a simple Angular JS calculator application that can perform basic mathematical 
+operations (addition, subtraction, multiplication, division) based on user input.  
+Program: -  
+<!DOCTYPE html>  
+<html>  
+<head>  
+<!-- Link Your CSS If You Want  -->  
+<link rel="stylesheet" href="Stylesheet.css">   
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></s 
+cript>  
+</head>  
+<body ng-app="">  
+<input type="number" ng-model="num1">  
+<input type="number" ng-model="num2">  
+<button ng-click="result = num1 + num2">+</button>  
+<button ng-click="result = num1 - num2">-</button>  
+<button ng-click="result = num1 * num2">*</button>  
+<button ng-click="result = num1 / num2">/</button>  
+<div>Result: {{ result }}</div>  
+</body>  
+</html>  
+          : -  
+Q4. Write an Angular JS application that can calculate factorial and compute square based on given 
+user input.  
+Program: -  
+<!DOCTYPE html>  
+<html ng-app="myApp">  
+<head>  
+<!-- Link Your CSS If You Want  -->  
+<link rel="stylesheet" href="Stylesheet.css">   
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></s 
+cript>     
+<script>         
+angular.module('myApp', []).controller('myCtrl', 
+function($scope) {  
+$scope.fact = function(n) {                 
+return n < 2 ? 1 : n * $scope.fact(n - 1);             
+};  
+});  
+</script>  
+</head>  
+<body ng-controller="myCtrl">  
+<input type="number" ng-model="n">  
+<button ng-click="fr = fact(n); sr = n * n">Calculate</button>  
+<p>Factorial: {{ fr }}</p>  
+<p>Square: {{ sr }}</p>  
+</body>  
+</html>  
+          : -  
+Q5. Develop AngularJS application that displays a detail of students and their CGPA. Allow users to 
+read the number of students and display the count.   
+Note: Student details may be included in the program.  
+Program: -  
+<html>  
+<head>  
+<!-- Link Your CSS If You Want  -->  
+<!-- <link rel="stylesheet" href="Stylesheet.css">  -->  
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></s 
+cript>  
+</head>  
+<body ng-app ng-init="s=[{ usn: '1OX21CS000', name: 'S', cgpa: 8.5 }]">  
+<h2>Student Details</h2>  
+<input ng-model="ns.usn" placeholder="USN">  
+<input ng-model="ns.name" placeholder="Name">  
+<input type="number" ng-model="ns.cgpa" placeholder="CGPA">  
+<button ng-click="s.push(ns); ns={}">Add</button>  
+<table border="1">  
+<tr>  
+<th>USN</th>  
+<th>Name</th>  
+<th>CGPA</th>  
+</tr>  
+<tr ng-repeat="st in s | orderBy:'usn'">  
+<td>{{ st.usn }}</td>  
+<td>{{ st.name }}</td>  
+<td>{{ st.cgpa }}</td>  
+</tr>  
+</table>  
+<p>Total students: {{ s.length }}</p>  
+</body>  
+</html>   
+          : -  
+Q6. Develop an AngularJS program to create a simple to-do list application. Allow users to add, edit, 
+and delete tasks.  
+Note: The default values for tasks may be included in the program.  
+Program: -  
+<!DOCTYPE html>  
+<html ng-app="">  
+<head>  
+<!-- Link Your CSS If You Want  -->  
+<!-- <link rel="stylesheet" href="Stylesheet.css">  -->  
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></s 
+cript>  
+</head>  
+<body ng-init="tasks=[{text:'Task 1', editing:false}, {text:'Task 2', 
+editing:false}]">  
+<input ng-model="newTask" placeholder="New Task">  
+<button 
+ng-click="tasks.push({text: 
+newTask, 
+editing: 
+false}); 
+newTask=''">Add</button>  
+<ul>  
+<li ng-repeat="task in tasks">  
+<span ng-hide="task.editing" ng-bind="task.text"></span>  
+<input ng-show="task.editing" ng-model="task.text">  
+<button ng-click="task.editing = !task.editing">{{task.editing ?  
+'Done' : 'Edit'}}</button>  
+<button ng-click="tasks.splice($index, 1)">Delete</button>  
+</li>  
+</ul>  
+</body>  
+</html>  
+          : -  
+Q7.Write an AngularJS program to create a simple CRUD application (Create, Read, Update, and 
+Delete) for managing users.  
+Program: -  
+<!DOCTYPE html>  
+<html lang="en" ng-app ng-init="uList=[]; nUser={}; eIdx=null">  
+<head>         
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></s 
+cript>     
+</head>  
+<body>  
+<input ng-model="nUser.name" placeholder="Name">  
+<input ng-model="nUser.email" placeholder="Email">  
+<button ng-click="uList.push(nUser); nUser={}">Add User</button>  
+<ul>  
+<li ng-repeat="user in uList">  
+<input ng-if="eIdx === $index" ng-model="user.name">  
+<input ng-if="eIdx === $index" ng-model="user.email">  
+<span ng-if="eIdx !== $index">  
+{{ user.name }} - {{ user.email }}  
+</span>  
+<button ng-click="eIdx = eIdx === $index ? null : $index">  
+{{eIdx === $index ? 'Save' : 'Edit'}}  
+</button>  
+<button ng-click="uList.splice($index, 1)">Delete</button>  
+</li>  
+</ul>  
+</body>  
+</html>  
+          : -  
+Q8. Develop AngularJS program to create a login form, with validation for the username and 
+password fields. Program: -  
+<!DOCTYPE html>  
+<html>  
+<head>  
+<!-- Link Your CSS If You Want  -->  
+<!-- <link rel="stylesheet" href="Stylesheet.css">  -->  
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></s 
+cript>  
+</head>  
+<body ng-app>  
+<form ng-submit="submitted = true">  
+<input type="text" ng-model="user.username" placeholder="Username" 
+required>  
+<input type="password" ng-model="user.password" placeholder="Password" 
+required>  
+<button type="submit">Login</button>  
+</form>  
+<div ng-if="submitted">Login successful!</div>  
+</body>  
+</html>  
+          : -  
+Q9. Create an AngularJS application that displays a list of employees and their salaries. Allow users 
+to search for employees by name and salary.   
+Note: Employee details may be included in the program.  
+Program: -  
+<!DOCTYPE html>  
+<html ng-app="">  
+<head>      
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> 
+</script>  
+</head>  
+<body ng-init="emps=[{n: 'TOCE ', s: 50000}, {n: 'CSE', s: 60000}]">  
+<form ng-submit="emps.push({n: n, s: s}); n=''; s=null">  
+<input ng-model="n" placeholder="Name">  
+<input type="number" ng-model="s" placeholder="Salary">  
+<button type="submit">Add</button>  
+</form>  
+<input ng-model="sName" placeholder="Search by Name">  
+<input ng-model="sSalary" type="number" placeholder="Search by Salary">  
+<ul>  
+<li ng-repeat="emp in emps | filter:{n: sName, s: (sSalary || 
+undefined)}">  
+{{ emp.n }} - ₹{{ emp.s }}  
+</li>  
+</ul>  
+</body>  
+</html>  
+          : -  
+Q10. Create an AngularJS application that allows users to maintain a collection of items. The 
+application should display the current total number of items, and this count should automatically 
+update as items are added or removed. Users should be able to add items to the collection and 
+remove them as needed.  
+<!DOCTYPE html>  
+<html ng-app="">  
+<head>      
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> 
+</script>  
+</head>  
+<body> 
+<div ng-controller="ItemController"> 
+<h1>Item Collection App</h1> 
+<form ng-submit="addItem()"> 
+<input type="text" ng-model="newItem" placeholder="Enter item" required> 
+<button type="submit">Add</button> 
+</form> 
+<ul> 
+<li ng-repeat="item in items"> 
+{{ item }} 
+<button ng-click="removeItem($index)">Remove</button> 
+</li> 
+</ul> 
+<p>Total Items: {{ items.length }}</p> 
+</div> 
+<script> 
+angular.module('itemApp', []) 
+.controller('ItemController', function($scope) { 
+$scope.items = ["Item 1", "Item 2", "Item 3"];  
+$scope.addItem = function() { 
+if ($scope.newItem) { 
+$scope.items.push($scope.newItem); 
+$scope.newItem = ''; // Clear input after adding 
+}}; 
+$scope.removeItem = function(index) { 
+$scope.items.splice(index, 1); 
+}; 
+}); 
+</script> 
+</body>  
+</html> 
+          :                                       
+ 
+ 
+Q11. Create AngularJS application to convert student details to Uppercase using angular filters.  
+<!DOCTYPE html> 
+<html ng-app="studentApp"> 
+<head> 
+    <title>Student Details Converter</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head> 
+<body> 
+    <div ng-controller="StudentController"> 
+        <h1>Student Details Converter</h1> 
+        <h2>Student Details (Original)</h2> 
+        <ul> 
+            <li ng-repeat="student in students"> 
+                {{ student.name }} - {{ student.branch }} 
+            </li> 
+        </ul> 
+        <h2>Student Details (Uppercase)</h2> 
+        <ul> 
+            <li ng-repeat="student in students"> 
+                {{ student.name | uppercase }} - {{ student.branch | uppercase }} 
+            </li> 
+        </ul> 
+    </div> 
+    <script> 
+        angular.module('studentApp', []) 
+            .controller('StudentController', function($scope) { 
+                $scope.students = [ 
+                    { name: 'Harsha', branch: 'Computer Science and design' }, 
+                    { name: 'Madhu sravanthi', branch: 'information science' }, 
+                    { name: 'Nikitha', branch: 'Artificial intelligence' }, 
+                    { name: 'sanjana', branch: 'bachelor of interior design' } 
+                ];  
+            }); 
+    </script> 
+</body> 
+</html> 
+          :                     
+Q12. Create an AngularJS application that displays the date by using date filter parameters.  
+<!DOCTYPE html> 
+<html ng-app="dateApp"> 
+<head> 
+<title>AngularJS Date Display</title> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head> 
+<body> 
+<div ng-controller="dateCtrl" id="dateDisplay"> 
+<h2>Date Display</h2> 
+<p>Default Format: {{ currentDate | date }}</p> 
+<p>Custom Format: {{ currentDate | date:'fullDate' }}</p> 
+<p>Short Format: {{ currentDate | date:'short' }}</p> 
+<p>Custom Format (MM/dd/yyyy): {{ currentDate | date:'MM/dd/yyyy' }}</p> 
+</div> 
+<script> 
+var app = angular.module('dateApp', []); 
+app.controller('dateCtrl', function ($scope) { 
+$scope.currentDate = new Date(); 
+}); 
+</script> 
+</body> 
+</html> 
+        
