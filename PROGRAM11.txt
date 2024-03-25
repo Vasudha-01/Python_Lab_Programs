@@ -30,6 +30,7 @@ return $scope.firstName + " " + $scope.lastName;
 </script> 
 </body> 
 </html> 
+
 Program Number : 2 
 Develop an Angular JS application that displays a list of shopping items. Allow users to add and 
 remove items from the list using directives and controllers. Note: The default values of items may be 
@@ -71,6 +72,7 @@ $scope.items.splice(index, 1);
 </script> 
 </body> 
 </html> 
+
 Program Number : 3 
 Develop a simple Angular JS calculator application that can perform basic mathematical operations 
 (addition, subtraction, multiplication, division) based on user input. 
@@ -125,6 +127,7 @@ $scope.result = "Cannot divide by zero";
 </script> 
 </body> 
 </html> 
+
 Program Number : 4 
 Write an Angular JS application that can calculate factorial and compute square based on given user 
 input. 
@@ -265,6 +268,7 @@ $scope.tasks.splice(index, 1);
 </script> 
 </body> 
 </html> 
+
 Program Number 7: 
 Write an AngularJS program to create a simple CRUD application (Create, Read, Update, and Delete) 
 for managing users. 
@@ -338,6 +342,7 @@ $scope.users.splice(index, 1);
 </script> 
 </body> 
 </html> 
+
 Program Number 8: 
 Develop AngularJS program to create a login form, with validation for the username and password 
 fields 
@@ -377,6 +382,7 @@ console.log('Password:', $scope.password);
 </script> 
 </body> 
 </html> 
+
 Program Number 9: 
 Create an AngularJS application that displays a list of employees and their salaries. Allow users to 
 search for employees by name and salary. Note: Employee details may be included in the program. 
@@ -426,47 +432,6 @@ return employee.name.toLowerCase().includes(name.toLowerCase()) &&
 </body> 
 </html> 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 Program Number 10: 
 Create AngularJS application that allows users to maintain a collection of items. The application 
 should display the current total number of items, and this count should automatically update as 
@@ -513,3 +478,68 @@ $scope.items.splice(index, 1);
 </script> 
 </body> 
 </html> 
+
+Program Number 11: 
+ 
+Create AngularJS application to convert student details to Uppercase using angular filters. 
+Include the default details of students in the program. 
+ 
+Solution: 
+ 
+<!DOCTYPE html> 
+<html ng-app="studentApp"> 
+<head> 
+    <title>Student Details</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head> 
+<body> 
+    <div ng-controller="StudentController"> 
+        <h2>Student Details</h2> 
+ 
+        <ul> 
+            <li ng-repeat="student in students"> 
+                <span>Name: {{student.name | uppercase}}, Grade: {{student.grade | uppercase}}</span> 
+            </li> 
+        </ul> 
+    </div> 
+ 
+    <script> 
+        var app = angular.module('studentApp', []); 
+        app.controller('StudentController', function($scope) { 
+            $scope.students = [ 
+                { name: 'John Doe', grade: 'A' }, 
+                { name: 'Alice Smith', grade: 'B' }, 
+                { name: 'Bob Johnson', grade: 'C' } 
+            ]; 
+        }); 
+    </script> 
+</body> 
+</html> 
+ 
+Program Number 12: 
+ 
+Create an AngularJS application that displays the date by using date filter parameters 
+ 
+Solution: 
+ 
+<!DOCTYPE html> 
+<html ng-app="dateApp"> 
+<head> 
+    <title>Date Display</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head> 
+<body> 
+    <div ng-controller="DateController"> 
+        <h2>Date Display</h2> 
+        <p>Today's Date: {{ currentDate | date: 'fullDate' }}</p> 
+        <p>Current Time: {{ currentDate | date: 'shortTime' }}</p> 
+    </div> 
+ 
+    <script> 
+        var app = angular.module('dateApp', []); 
+        app.controller('DateController', function($scope) { 
+            $scope.currentDate = new Date(); 
+        }); 
+    </script> 
+</body> 
+</html>
